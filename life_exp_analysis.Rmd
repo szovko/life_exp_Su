@@ -20,4 +20,17 @@ library(gapminder)
 
 Here, I re-examine the analysis of Oeppen and Vaupel (2002).
 
-# Analysis
+This is summarizing the data to be clean
+# life expectency Analysis
+```{r}
+data("gapminder_unfiltered")
+gapminder_unfiltered %>% 
+  group_by(year) %>% 
+  filter(lifeExp == max(lifeExp)) %>% 
+  ungroup() %>% 
+  select(year, country, lifeExp) %>% 
+  arrange(year) ->
+  sumdat
+sumdat
+```
+
